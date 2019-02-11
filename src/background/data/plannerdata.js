@@ -1,7 +1,6 @@
 /*globals SUPPLYTYPE*/
 
 //Templates
-//Test test test MIKON
 const PLANNER_TEMPLATES = {
     orbs: {
         low: {
