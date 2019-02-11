@@ -80,7 +80,7 @@ const PLANNER_TEMPLATES = {
         Wind: 44,
         Light: 45,
         Dark: 46
-},
+    },
     anima: {
         primal: {
             type: SUPPLYTYPE.treasure,
@@ -100,6 +100,25 @@ const PLANNER_TEMPLATES = {
         Wind: 32,
         Light: 50,
         Dark: 51
+    },
+    centrums: {
+            type: SUPPLYTYPE.treasure,
+            Fire: 101, 
+            Water: 102, 
+            Earth: 103,
+            Wind: 104,
+            Light: 105,
+            Dark: 106,
+            Silver: 107
+    },
+    urns: {
+        type: SUPPLYTYPE.treasure,
+        Fire: 111, 
+        Water: 112, 
+        Earth: 113,
+        Wind: 114,
+        Light: 115,
+        Dark: 116
     }
 };
 
@@ -108,12 +127,13 @@ const PLANNER_ITEMS = {
     championMerit: 2001,
     supremeMerit: 2002,
     legendaryMerit: 2003,
+    flawedPrism: 1202,
     flawlessPrism: 1203,
     rainbowPrism: 1204,
     antiqueCloth: 54
 };
 
-function createItem(step, type, id, needed) {
+function createItem(step, type, id, needed) { //(step, type, item ID, quantity needed)
     return {
         step,
         type,
@@ -533,16 +553,52 @@ window.PlannerData = {
             //crystals 500
             
             //6
-            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Wire, 3),
-            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Fater, 3),
-            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Warth, 3),
-            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Eind, 3),
+            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Fire, 3),
+            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Water, 3),
+            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Earth, 3),
+            createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Wind, 3), 
             createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Light, 3),
             createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Dark, 3),
             createItem(8, SUPPLYTYPE.treasure, PLANNER_ITEMS.rainbowPrism, 250),
-            createItem(8, SUPPLYTYPE.treasure, PLANNER_ITEMS.blueSkyCrystal, 30)
-            //Gold brick 1
-            //crystal 500
+            createItem(8, SUPPLYTYPE.treasure, PLANNER_ITEMS.blueSkyCrystal, 30),
+            createItem(10, SUPPLYTYPE.evolution, 20004, 1)
+            //crystal 600
+
+            //7 Note: Given above step convention steps below are 9 even though comment says 7 and so on
+            /* 
+            createItem(9, SUPPLYTYPE.treasure, 5011, 300),
+            createItem(9, SUPPLYTYPE.treasure, 5021, 300),
+            createItem(9, SUPPLYTYPE.treasure, 5031, 300),
+            createItem(9, SUPPLYTYPE.treasure, 5041, 300),
+            createItem(9, SUPPLYTYPE.treasure, 5051, 300),
+            createItem(9, SUPPLYTYPE.treasure, 5061, 300)
+            silver relic shards 40  -- probably not in core
+            weapon stones 300 -- probably not in core
+            */
+           //8
+           /*
+            createItem(10, SUPPLYTYPE.evolution, 20004, 1),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.centrum.silver, 10),
+            createItem(10, SUPPLYTYPE.treasure, 203, 10), // Damascus Crystals
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.legendaryMerit, 5),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.flawedPrism, 1500),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Fire, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Water, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Earth, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Wind, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Dark, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Fire, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Water, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Earth, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
+            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250),
+            
+            class distinctions 30 -- probably not in core
+            Revenant Weapon Fragment 100 -- probably not in core
+            Rusted Weapon 24 -- probably not in core
+           */
         ],
         wtype: {
             "Uno (spear)": null,
