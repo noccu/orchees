@@ -561,25 +561,26 @@ window.PlannerData = {
             createItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Dark, 3),
             createItem(8, SUPPLYTYPE.treasure, PLANNER_ITEMS.rainbowPrism, 250),
             createItem(8, SUPPLYTYPE.treasure, PLANNER_ITEMS.blueSkyCrystal, 30),
-            createItem(10, SUPPLYTYPE.evolution, 20004, 1)
+            createItem(10, SUPPLYTYPE.evolution, 20004, 1),
             //crystal 600
 
             //7 Note: Given above step convention steps below are 9 even though comment says 7 and so on
-            /* 
+             
             createItem(9, SUPPLYTYPE.treasure, 5011, 300),
             createItem(9, SUPPLYTYPE.treasure, 5021, 300),
             createItem(9, SUPPLYTYPE.treasure, 5031, 300),
             createItem(9, SUPPLYTYPE.treasure, 5041, 300),
             createItem(9, SUPPLYTYPE.treasure, 5051, 300),
-            createItem(9, SUPPLYTYPE.treasure, 5061, 300)
+            createItem(9, SUPPLYTYPE.treasure, 5061, 300),
+            /*
             silver relic shards 40  -- probably not in core
             weapon stones 300 -- probably not in core
             */
+
            //8
-           /*
             createItem(10, SUPPLYTYPE.evolution, 20004, 1),
             createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.centrum.silver, 10),
-            createItem(10, SUPPLYTYPE.treasure, 203, 10), // Damascus Crystals
+            createItem(10, SUPPLYTYPE.treasure, 203, 10),
             createItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.legendaryMerit, 5),
             createItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.flawedPrism, 1500),
             createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Fire, 250),
@@ -594,7 +595,7 @@ window.PlannerData = {
             createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
             createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
             createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250),
-            
+            /*
             class distinctions 30 -- probably not in core
             Revenant Weapon Fragment 100 -- probably not in core
             Rusted Weapon 24 -- probably not in core
