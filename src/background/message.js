@@ -1,4 +1,3 @@
-/*globals chrome:false, Profile: true, Supplies: true, State: true, DevTools*/
 window.DevTools = {
     devToolsConnection: null,
     wait: function() {
@@ -55,10 +54,10 @@ function hear (msg) {
                     Profile.pendants.set(msg.data.json);
                     break;
                 case url.ismatch("item/article_list")://Treasure list
-                    Supplies.treasure.set(msg.data.json);
+                    Supplies.setTreasure(msg.data.json);
                     break;
                 case url.ismatch("item/recovery_and_evolution_list")://Consumables list
-                    Supplies.consumable.set(msg.data.json);
+                    Supplies.setConsumables(msg.data.json);
                     break;
                 case url.ismatch("resultmulti/data")://Raid loot screen
                 case url.ismatch("result/data"): //Quest loot screen
@@ -102,6 +101,31 @@ function hear (msg) {
                     purchaseItem(msg.data.json);
                     //TODO: May need to ignore the next item/article_list request cause some items go to crate, causing the data in the response to not be updated...
                     break;
+                case url.ismatch("summon/decompose_multi"):
+                case url.ismatch("weapon/decompose_multi"):
+                    reduce(msg.data.json);
+                    break;
+                    //quest/user_action_point  ==> before usage
+                    /*
+                    json:
+                        action_point: 141
+                        action_point_limit: 999
+                        elixir_half_recover_value: 56
+                        elixir_recover_value: 113
+                        max_action_point: "113"
+                    */
+                    //quest/quest_data ==> info
+                    /*
+                    json:
+                        action_point: "40"
+                        chapter_name: "Belial Impossible"
+                    */
+                case url.ismatch("quest/treasure_raid"):
+                case /treasureraid\d+\/top\/content\/newindex/.test(url):
+                    storeImminentRaidsTreasure(msg.data);
+                    break;
+                case url.ismatch("quest/create_quest"):
+                    consumeImminentRaidsTreasure(msg.data);
             }
             break;
         case "plannerSeriesChange":

@@ -1,0 +1,23 @@
+{
+  "globals": {
+    "chrome": false,
+    "Supplies": true,
+    "Storage": true,
+    "DevTools": true,
+    "State": true,
+    "Battle": true,
+    "Raids": true,
+    "Planner": true,
+    "Profile": true,
+    "PlannerData": false,
+    "RaidData": false,
+      
+    "devlog": false,
+    "deverror": false,
+    "devwarn": false,
+    "updateUI": false,
+      
+    "SUPPLYTYPE": false,
+    "ITEM_KIND": false
+  }
+}
