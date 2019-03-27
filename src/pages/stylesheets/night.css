@@ -5,10 +5,13 @@
     --text-color: antiquewhite;
     --diff-color-a: #645374;
     --diff-color-b: #562025;
+    --diff-color-c: #fe2b8d;
     --line-color: grey;
-    
+
     --selection-color: #3a6895;
     --highlight-color: #548a71;
-    
+
     --main-font: sans-serif;
+    
+    --icon-size-raid-info: 50px;
 }
