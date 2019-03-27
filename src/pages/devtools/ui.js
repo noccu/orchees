@@ -43,6 +43,7 @@ window.UI = {
         document.getElementById("supplies-search").addEventListener("change", evhSuppliesSearch);
         //Specific filters
         document.getElementById("supplies-panel").addEventListener("filter", evhSuppliesFilter);
+        document.getElementById("raids-panel").addEventListener("filter", evhRaidsFilter);
     },
     
     time: {
@@ -187,8 +188,36 @@ window.UI = {
         }
     },
     raids: {
-        add: function() {
-            var t = document.getElementById("template-raid-item");
+        list: null,
+        evhStartRaid (ev) {
+            if (!ev.target.dataset.event && ev.currentTarget.entryObj) {
+                let raidId = ev.currentTarget.entryObj.data.id,
+                    matId = ev.target.dataset.matId; //undef is handled in the bg page function
+                BackgroundPage.send("hostRaid", {raidId, matId});
+            }
+        },
+        evhToggle (raid) {
+//            raid.classList.toggle("hidden");
+            BackgroundPage.send("updRaid", {action: "toggleActive",
+                                            raidEntry: raid.entryObj});
+        },
+        update (raidEntry) {
+            function upd(entry) {
+                let el = document.getElementById(entry.data.id);
+                el.entryObj = entry;
+                updateRaidTrackingDisplay(el);
+            }
+            
+            if (Array.isArray(raidEntry)) {
+                for (let re of raidEntry) {
+                    upd(re);
+                }
+            }
+            else {
+                upd(raidEntry);
+            }
+
+            document.getElementById("raids-filter").click();
         }
     }
 };
@@ -199,16 +228,16 @@ function clearDropdown(el) {
     }
 }
 
-//UI funcitonality
+//UI functionality
 function evhGlobalClick (e) {
-    if (e.target.dataset) {
+    if (e.target.dataset.event) { //dataset is always accesible
         switch (e.target.dataset.event) {
             case "collapse":
                 e.target.nextElementSibling.classList.toggle('hidden');
                 break;
             case "filter":
                 let activeFilters = [];
-                if (e.target.dataset.value == "All") {
+                if (e.target.dataset.value == "ALL") {
                     for (let filter of e.target.parentElement.children) {
                         filter.classList.remove("active");
                     }
@@ -216,11 +245,20 @@ function evhGlobalClick (e) {
                     activeFilters.push(e.target.dataset.value);
                 }
                 else {
-                    e.target.classList.toggle("active");
-                    //Special casing the "all" filter
-                    let list = e.target.parentElement,
+                    let list,
+                        defaultFilter;
+                    //Special action on the list parent to trigger filter with same values.
+                    if (e.target.dataset.value == "REFILTER") {
+                        list = e.target;
                         defaultFilter = list.firstElementChild;
-                    defaultFilter.classList.remove("active");
+                    }
+                    else {
+                        //Special casing the "all" filter
+                        list = e.target.parentElement;
+                        e.target.classList.toggle("active");
+                        defaultFilter = list.firstElementChild;
+                        defaultFilter.classList.remove("active");
+                    }
                     
                     for (let entry of list.getElementsByClassName("active")) {
                         activeFilters.push(entry.dataset.value);
@@ -235,6 +273,9 @@ function evhGlobalClick (e) {
                 }
                 
                 e.target.dispatchEvent( new CustomEvent("filter", {bubbles: true, detail: activeFilters}) );
+                break;
+            case "toggleRaid":
+                UI.raids.evhToggle(e.target.parentElement);
                 break;
         }
     }
@@ -258,12 +299,65 @@ function evhSuppliesFilter (e) {
         showAll = filters[0] == "All";
     
     for (let item of list.children) {
-        if (showAll || filters.includes(item.dataset.type) || (item.dataset.metaType && filters.includes(item.dataset.metaType)) ) {
+        if (showAll || filters.some(f => f == item.dataset.type || (item.dataset.metaType && f == item.dataset.metaType))) {
             item.classList.remove("hidden");
         }
         else {
             item.classList.add("hidden");
         }
+    }
+}
+function evhRaidsFilter (e) {
+    let filters = e.detail;
+    let filterables = ["elementName"];
+    
+    let check = {hl: {do: false},
+                 inactive: {do: false},
+                 active: {do: true}};
+    function filter (raid) {
+        let specialCasesFound = 0; //Allow Special cases to AND each other when they are the only filters.
+        check.active.val = raid.entryObj.active == true;
+        
+        let ret = filters.some(f => { //This requires special case filters to be before general ones. If unwanted then update to do a full loop.
+            switch (f) {
+                case "ALL": //Actually more like ACTIVE
+                    return true;
+                case "INACTIVE":
+                    //Delay actual checking so we can AND with other filters if needed.
+                    check.inactive.do = true;
+                    check.active.do = false;
+                    check.inactive.val = !check.active.val;
+                    specialCasesFound++;
+                    if (filters.length == specialCasesFound) {return true;} //Allow to check other filters if they exist, return if not.
+                    break;
+                case "HL":
+                    check.hl.do = true;
+                    check.hl.val = raid.entryObj.data.isHl;
+                    specialCasesFound++;
+                    if (filters.length == specialCasesFound) {return true;}
+                    break;
+                default:
+                    return filterables.some(k => raid.entryObj.data[k] == f);
+            }
+        });       
+        if (ret) { //AND special cases
+            for (let c in check) {
+                if (check[c].do) {
+                    ret = ret && check[c].val;
+                }
+            }
+        }
+
+        return ret;
+    }
+    
+    for (let raid of UI.raids.list) {
+            if (filter(raid)) {
+                raid.classList.remove("hidden");
+            }
+            else {
+                raid.classList.add("hidden");
+            }
     }
 }
 

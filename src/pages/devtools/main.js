@@ -1,19 +1,15 @@
 window.DEBUG = true; //TODO: remove/replace with proper thing
 
 //Adding a last item in array macro
-Object.defineProperty(Array.prototype, "last", {get: function(){ 
-    return this.length === 0 ? 0 : this[this.length - 1]; 
+Object.defineProperty(Array.prototype, "last", {get: function(){
+    return this.length === 0 ? 0 : this[this.length - 1];
 }});
 
 if (chrome.runtime) {
     //Start logging network requests.
     BackgroundPage.connect();
     Network.listen();
-    //TODO: Query options and adjust UI.
-    BackgroundPage.query("theme", resp => UI.setTheme(resp.value));
-    BackgroundPage.query("plannerSeriesList", resp => UI.planner.init(resp.value));
-    BackgroundPage.query("unfEdition", resp => Unf.edition = resp.value);
-    
+
     UI.initButtons();
     UI.time.keep();
     UI.time.initTimers();
@@ -21,63 +17,62 @@ if (chrome.runtime) {
     //UI.battle.init();
 }
 
-
 function devLog() {
     if (DEBUG) {
-        console.log(arguments);
+        console.log(...arguments);
     }
 }
 
 function updatePendants (data) {
     UI.setValue([{
-        id: "display-renown-total", 
+        id: "display-renown-total",
         value: data.renown.total.current
         },{
-        id: "panel-renown-weekly", 
+        id: "panel-renown-weekly",
         value: data.renown.weekly.current
         },{
-        id: "panel-renown-daily", 
+        id: "panel-renown-daily",
         value: data.renown.daily.current
         },{
-        id: "panel-renown-sr", 
+        id: "panel-renown-sr",
         value: data.renown.sr.current
         },{
-        id: "panel-renown-r", 
+        id: "panel-renown-r",
         value: data.renown.r.current
         },{
-        id: "display-prestige-total", 
+        id: "display-prestige-total",
         value: data.prestige.total.current
         },{
-        id: "panel-prestige-weekly", 
+        id: "panel-prestige-weekly",
         value: data.prestige.weekly.current
         },{
-        id: "panel-prestige-crew", 
+        id: "panel-prestige-crew",
         value: data.prestige.crew.current
         }
     ]);
     UI.setValue([{
-        id: "display-renown-max", 
+        id: "display-renown-max",
         value: data.renown.total.max
         },{
-        id: "panel-renown-weekly-max", 
+        id: "panel-renown-weekly-max",
         value: data.renown.weekly.max
         },{
-        id: "panel-renown-daily-max", 
+        id: "panel-renown-daily-max",
         value: data.renown.daily.max
         },{
-        id: "panel-renown-sr-max", 
+        id: "panel-renown-sr-max",
         value: data.renown.sr.max
         },{
-        id: "panel-renown-r-max", 
+        id: "panel-renown-r-max",
         value: data.renown.r.max
         },{
-        id: "display-prestige-max", 
+        id: "display-prestige-max",
         value: data.prestige.total.max
         },{
-        id: "panel-prestige-weekly-max", 
+        id: "panel-prestige-weekly-max",
         value: data.prestige.weekly.max
         },{
-        id: "panel-prestige-crew-max", 
+        id: "panel-prestige-crew-max",
         value: data.prestige.crew.max
         }
     ]);
@@ -102,7 +97,7 @@ function updateStatus (data) {
     }*/
     //TODO: level bar
     ]);
-    
+
     var d = document.getElementById("ap-bp-display");
     d.classList.toggle("highlight", data.ap > data.apMax || data.bp > 10);
 }
@@ -111,7 +106,7 @@ function updateSupplies (idx) {
     if (idx) {
         var list = document.getElementById("supplies-list");
         var temp;
-        
+
         for (let item of idx) {
             let entry = document.getElementById(`${item.type}_${item.id}`);
             if (entry) {
@@ -123,7 +118,7 @@ function updateSupplies (idx) {
                 temp.content.appendChild(li);
             }
         }
-        if (temp) { 
+        if (temp) {
             list.appendChild(temp.content);
         }
     }
@@ -147,10 +142,10 @@ function createSupplyItem (data) {
     item.getElementsByClassName("collection-data")[0].textContent = data.count;
     item.dataset.type = data.typeName;
     if (data.metaType) {
-        item.dataset.metaType = data.metaType;   
+        item.dataset.metaType = data.metaType;
     }
 //    item.classList.add(data.typeName.replace(" ",""));
-    
+
     return document.importNode(t.content, true);
 }
 
@@ -172,11 +167,11 @@ function updateSeriesOptions (data) { //receives list of each option type.
     UI.planner.populateSelection("end", data.steps);
 }
 
-function updatePlan () {  //Event handler       
-    var plan = {series: UI.planner.display.series.value, 
-                type: UI.planner.display.type.value, 
-                element: UI.planner.display.element.value, 
-                start: UI.planner.display.start.selectedIndex, 
+function updatePlan () {  //Event handler
+    var plan = {series: UI.planner.display.series.value,
+                type: UI.planner.display.type.value,
+                element: UI.planner.display.element.value,
+                start: UI.planner.display.start.selectedIndex,
                 end: UI.planner.display.end.selectedIndex};
     BackgroundPage.send("newPlanRequest", plan);
 }
@@ -193,9 +188,10 @@ function updCurrentRaidInfo (data) {
         for (let item of data.loot) {
             if (ssr_only && item.rarity < 4) { continue; }
 
-            let disp = temp.content.firstElementChild;
+            let disp = temp.content.firstElementChild,
+                name = disp.getElementsByTagName("span")[0];
             disp.dataset.rarity = item.rarity;
-            disp.getElementsByTagName("span")[0].textContent = item.delta > 1 ? item.name+" x"+item.delta : item.name;
+            name.textContent = name.title = item.delta > 1 ? item.name+" x"+item.delta : item.name;
             disp.getElementsByTagName("img")[0].src = item.path;
 
             list.appendChild(document.importNode(temp.content, true));
@@ -204,34 +200,69 @@ function updCurrentRaidInfo (data) {
     UI.setValue({id: "raid-next-quest", value: data.nextQuest || ""});
 }
 
-function createRaid(raidData) {
+function createRaid(raidEntry) {
     var newRaid = document.getElementById("template-raid");
     var newRaidMat = document.getElementById("template-raid-material");
-       
-    newRaid.content.querySelector(".raid-name").title = raidData.name;
-    newRaid.content.querySelector(".raid-icon").src = raidData.thumb;
-    newRaid.content.querySelector(".raid-cost").textContent = raidData.apCost;
-    newRaid.content.querySelector(".raid-hosts .current-value").textContent = raidData.hosts.left;
-    newRaid.content.querySelector(".raid-hosts .max-value").textContent = raidData.hosts.max;
-   
-    newRaid = document.importNode(newRaid.content, true);
+
+    newRaid.content.querySelector(".raid").id = raidEntry.data.id;
+    newRaid.content.querySelector(".raid-name").textContent = raidEntry.data.name;
+    newRaid.content.querySelector(".raid-icon").src = raidEntry.data.img;
+//    newRaid.content.querySelector(".raid-icon").src = "../../assets/images/quests/"+raidEntry.data.img.split('/').pop();
+//    devLog(raidEntry.data.img);
+    newRaid.content.querySelector(".raid-cost").textContent = raidEntry.data.apCost;
     
-    let matsCost = newRaid.getElementsByClassName("raid-host-mats")[0];
-    for (let mat of raidData.mats) {
-        newRaidMat.content.querySelector(".current-value").textContent = mat.req;
-        newRaidMat.content.querySelector(".max-value").textContent = mat.current;
-        newRaidMat.content.querySelector(".raid-mat-icon").src = mat.icon;
-        matsCost.appendChild(document.importNode(newRaidMat, true));
+//    newRaid.content.querySelector(".raid-hosts .current-value").textContent = raidEntry.data.dailyHosts - raidEntry.hosts.today;
+    newRaid.content.querySelector(".raid-hosts .max-value").textContent = raidEntry.data.dailyHosts;
+
+    newRaid = document.importNode(newRaid.content, true);
+    newRaid.firstElementChild.entryObj = raidEntry;
+    newRaid.firstElementChild.addEventListener("click", UI.raids.evhStartRaid);
+    updateRaidTrackingDisplay(newRaid.firstElementChild);
+
+    if (raidEntry.data.matCost) {
+        let matCost = newRaid.querySelector(".raid-host-mats");
+        for (let mat of raidEntry.data.matCost) {
+            newRaidMat.content.querySelector(".current-value").textContent = mat.supplyData.count;
+            newRaidMat.content.querySelector(".max-value").textContent = mat.num;
+            newRaidMat.content.querySelector(".raid-mat-icon").src = mat.supplyData.path;
+            newRaidMat.content.querySelector(".raid-mat").dataset.matId = mat.id;
+//            newRaid.querySelector(".raid-name").dataset.url = raidEntry.data.urls[Object.keys(raidEntry.data.urls)[0]];
+            matCost.appendChild(document.importNode(newRaidMat.content, true));
+        }
+    }
+
+    return newRaid;
+}
+
+function updateRaidTrackingDisplay(raidEle) {
+    let raidEntry = raidEle.entryObj;
+    
+    let hostsLeft = raidEntry.data.dailyHosts - raidEntry.hosts.today;
+    raidEle.querySelector(".raid-hosts .current-value").textContent = hostsLeft;
+
+    if (raidEntry.active) {
+        raidEle.classList.remove("hidden");
+    }
+    else {
+        raidEle.classList.add("hidden");
     }
     
-    return newRaid;
+    if (hostsLeft == 0) {
+        raidEle.classList.add("host-limit");
+    }
+    else {
+        raidEle.classList.remove("host-limit");
+    }
 }
 
 function populateRaids (raids) { //called when bg page sends response to reqRaidList.
     let list = document.getElementById("raids-list");
+    let frag = document.createDocumentFragment();
     for (let raid of raids) {
-        list.appendChild(createRaid(raid));
+        frag.appendChild(createRaid(raid));
     }
+    list.appendChild(frag);
+    UI.raids.list = list.children;
 }
 
 function evhFilterRaids(e) { //called on changing filters

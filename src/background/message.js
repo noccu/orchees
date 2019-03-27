@@ -34,7 +34,6 @@ window.DevTools = {
 
 //Add a simple fast boolean return match function just cause I like it better :>
 String.prototype.ismatch = function(s){ return this.indexOf(s) != -1;};
-// function ismatch (s) { return this.indexOf(s) != -1};
 
 function hear (msg) {
 //    console.log("Processing:", data);
@@ -61,7 +60,8 @@ function hear (msg) {
                     break;
                 case url.ismatch("resultmulti/data")://Raid loot screen
                 case url.ismatch("result/data"): //Quest loot screen
-                    gotQuestLoot(msg.data.json.rewards);
+                case url.ismatch("arcarum/open_chest"):
+                    gotQuestLoot(msg.data.json);
                     getPendantsRaid(msg.data.json);
                     checkNextQuest(msg.data.json);
                     break;
@@ -125,7 +125,13 @@ function hear (msg) {
                     storeImminentRaidsTreasure(msg.data);
                     break;
                 case url.ismatch("quest/create_quest"):
-                    consumeImminentRaidsTreasure(msg.data);
+                    if (msg.data.json.result == "ok") {
+                        consumeImminentRaidsTreasure(msg.data);
+                        Raids.update({
+                            action: "hosted",
+                            id: msg.data.postData.quest_id
+                        });
+                    }
             }
             break;
         case "plannerSeriesChange":
@@ -147,6 +153,11 @@ function hear (msg) {
                 State.save();
             }
             break;
+        case "updRaid":
+            Raids.update(msg.data);
+            break;
+        case "hostRaid":
+            Raids.start(msg.data.raidId, msg.data.matId);
     }
 }
 
@@ -154,18 +165,7 @@ function hearQuery (data, sender, respond) {
     var retValue;
 
     switch (data.query) {
-        case "theme":
-            retValue = State.settings.theme.current;
-            break;
-        case "plannerSeriesList":
-            retValue = Planner.listSeries();
-            break;
-        case "loadData":
-            Storage.get(data, respond);
-            break;
-        case "unfEdition":
-            retValue = State.unfEdition;
-            break;
+            //Nothing so far since change.
     }
 
     respond({query: data.query,

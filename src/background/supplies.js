@@ -2,12 +2,14 @@
 const SUPPLYTYPE = {treasure: 10, recovery: 4, evolution: 17, skill: 67, augment: 73, vessels: 75, Untracked: [1,2,3,19,37,38,39,50,82]}; //jshint ignore:line
 SUPPLYTYPE.Consumables = [SUPPLYTYPE.recovery, SUPPLYTYPE.evolution, SUPPLYTYPE.augment, SUPPLYTYPE.skill, SUPPLYTYPE.vessels]; //types that make up "consumables" I think skill = 10000 sometimes?
 
-const GAME_URL = {
+const GAME_URL = {//jshint ignore:line
     baseGame: "http://game.granbluefantasy.jp/",
     assets: "http://game.granbluefantasy.jp/assets_en/img/sp/assets/",
+    assets_light: "http://game.granbluefantasy.jp/assets_en/img_light/sp/assets/",
     size: {
         small: "s/",
-        medium: "m/"
+        medium: "m/",
+        questMedium: "qm/"
     }
 };
 //const treasureCategory = {primal: 0, world: 1, uncap: 2, coop: 3, event: 4, showdown: 5, other: 6};
@@ -235,10 +237,10 @@ window.Supplies = {
     */
     get: function (type, id) {
         if (Array.isArray(arguments[0])) {
-            if (typeof arguments[0][0] != "object") {
+/*            if (typeof arguments[0][0] != "object") {
                 deverror("Use getType to look up meta types");
                 return;
-            }
+            }*/
             let ret = [];
             for (let entry of arguments[0]) {
                 ret.push( this.get(entry.type, entry.id) );
@@ -379,16 +381,18 @@ window.Supplies = {
         Storage.set({sup_idx: this.index});
         devlog("Supply index saved.");
     },
-    load: function() {
-        function _load(data) {
-            this.index = data.sup_idx || {};
+    load: function() { //Called out of context
+        return new Promise((r,x) => {
+            function _load(data) {
+                Supplies.index = data.sup_idx || {};
 
-            devlog("Supply index loaded.");
-            updateUI("setTreasure", this.getType(SUPPLYTYPE.treasure));
-            updateUI("setConsumables", this.getType(SUPPLYTYPE.Consumables));
-        }
-
-        Storage.get(["sup_idx"], _load.bind(this));
+                devlog("Supply index loaded.");
+                updateUI("setTreasure", Supplies.getType(SUPPLYTYPE.treasure));
+                updateUI("setConsumables", Supplies.getType(SUPPLYTYPE.Consumables));
+                r();
+            }
+            Storage.get(["sup_idx"], _load);
+        });
     },
     clear: function() {
         this.index = {};
@@ -398,34 +402,58 @@ window.Supplies = {
 function gotQuestLoot(data) {
     var upd = [];
     function addUpdItem(entry) {
-        let type = entry.item_kind || entry.kind;
-        let item = new SupplyItem(type, entry.id, 0, entry.name);
-        item.delta = parseInt(entry.count);
-        item.rarity = parseInt(entry.rarity);
+        let type = entry.item_kind || entry.kind,
+            id = entry.id || entry.item_id,
+            count = entry.count || entry.num,
+            name = entry.name || entry.item_name;
+        
+        let item = new SupplyItem(type, id, 0, name);
+        item.delta = parseInt(count);
+        if (entry.rarity) {
+            item.rarity = parseInt(entry.rarity);
+        }
         if (!item.path) {
             //Read path from response (item.type) or default to treasure, seems most common.
-            item.path = entry.type && entry.type.includes("item") ? entry.type : ITEM_KIND[SUPPLYTYPE.treasure].path;
+            item.path = type && type.includes("item") ? type : ITEM_KIND[SUPPLYTYPE.treasure].path;
         }
         upd.push(item);
     }
 
     //Non-box, side-scrolling
-    if (data.article_list) {
-        for (let key of Object.keys(data.article_list)) {
-            let entry = data.article_list[key];
+    let loot = data.rewards.article_list,
+        content;
+    if (loot.length == undefined) { //It's an array when empty apparently...
+        content = Object.keys(loot);
+        for (let key of content) {
+            let entry = loot[key];
             addUpdItem(entry);
         }
+        devlog(`[Loot] Got ${content.length} items from side-scroll.`);
     }
 
     //Box drops
-    if (data.reward_list) {
-        for (let key of Object.keys(data.reward_list)) {
-            let boxType = data.reward_list[key];
+    loot = data.rewards.reward_list;
+    if (loot.length == undefined) { //An object when not
+        content = Object.keys(loot);
+        let numItems = 0;
+        for (let key of content) {
+            let boxType = loot[key];
             //BOXTYPES? 1: bronze, 2: silver, 3: gold, 4: red, 11: blue. rarity >= 4: flip
             for (let entry of Object.keys(boxType)) {
                 addUpdItem(boxType[entry]);
+                numItems++;
             }
         }
+        devlog(`[Loot] Got ${numItems} items from boxes.`);
+    }
+    
+    //Arcarum chests
+    loot = data.contents;
+    if (loot) { //Is actually an array or undef/missing.
+        for (let item of loot) {
+            addUpdItem(item);
+        }
+        devlog(`[Loot] Got ${loot.length} items from arcarum chest.`);
     }
     Supplies.update(upd);
     DevTools.send("updRaidLoot", {loot: upd});
@@ -512,7 +540,7 @@ function storeImminentRaidsTreasure (data) {
 
 function consumeImminentRaidsTreasure (data) {
     if (data.json.result == "ok" && Supplies.currentImminentRaids) {
-        let itemData = Supplies.currentImminentRaids.find(x => x.questId == data.postData.quest_id);
+        let itemData = Supplies.currentImminentRaids.find(x => x.questId == data.postData.quest_id && x.itemId == data.postData.use_item_id);
         if (itemData) {
             let si = new SupplyItem(itemData.type, itemData.itemId, 0);
             si.delta = - itemData.num;
