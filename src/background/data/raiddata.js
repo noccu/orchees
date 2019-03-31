@@ -43,6 +43,7 @@ window.RaidList = [
     new RaidData("Griffin (H)", 300021, RAID_TIER.A, null, 3, 15, null, null, ELEMENTS.wind, "2030003000_hard.png"),
     new RaidData("Tiamat (N)", 300031, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.wind, "2030000000.png"),
     new RaidData("Tiamat (H)", 300041, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.wind, "2030000000_hard.png"),
+//  new RaidData("Tiamat (H+)", 305011, RAID_TIER.B, null 1, null, null, null, ELEMENTS.wind, "2030000000_hard_plus.png"),
     new RaidData("Tiamat Omega", 300051, RAID_TIER.Magna, null, 3, 30, [18], [2], ELEMENTS.wind, "2040020000_ex.png"),
     new RaidData("Nezha", 300421, RAID_TIER.Ancient, null, 2, 40, [1343, 1141], [50, 6], ELEMENTS.wind, "2040042000_ex.png"),
     new RaidData("Garuda", 301381, RAID_TIER.Epic, null, 2, null, [1343, 1141], [50, 6], ELEMENTS.wind, "2040071000_ex.png"),
@@ -54,6 +55,7 @@ window.RaidList = [
     new RaidData("Flame (H)", 300071, RAID_TIER.A, null, 3, null, null, null, ELEMENTS.fire, "2020018001_hard.png"),
     new RaidData("Colossus (N)", 300081, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.fire, "2030001000.png"),
     new RaidData("Colossus (H)", 300091, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.fire, "2030001000_hard.png"),
+//  new RaidData("Colossus (H+)", 305021, RAID_TIER.B, null 1, null, null, null, ELEMENTS.fire, "2030001000_hard_plus.png"),
     new RaidData("Colossus Omega", 300101, RAID_TIER.Magna, null, 3, null, [19], [2], ELEMENTS.fire, "2040034000_ex.png"),
     new RaidData("Twin Elements", 300411, RAID_TIER.Ancient, null, 2, null, [1313, 1111], [50, 6], ELEMENTS.fire, "2040063000_ex.png"),
     new RaidData("Athena", 301071, RAID_TIER.Epic, null, 2, null, [1313, 1111], [50, 6], ELEMENTS.fire, "2040021000_ex.png"),
@@ -65,6 +67,7 @@ window.RaidList = [
     new RaidData("Guard (H)", 300121, RAID_TIER.A, null, 3, null, null, null, ELEMENTS.water, "2030013001_hard.png"),
     new RaidData("Leviathan (N)", 300141, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.water, "2030011000.png"),
     new RaidData("Leviathan (H)", 300151, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.water, "2030011000_hard.png"),
+//  new RaidData("Leviathan (H+)", 305031, RAID_TIER.B, null 1, null, null, null, ELEMENTS.water, "2030011000_hard_plus.png"),
     new RaidData("Leviathan Omega", 300161, RAID_TIER.Magna, null, 3, null, [20], [2], ELEMENTS.water, "2040028000_ex.png"),
     new RaidData("Macula", 300381, RAID_TIER.Ancient, null, 2, null, [1323, 1121], [50, 6], ELEMENTS.water, "2040002000_ex.png"),
     new RaidData("Grani", 300481, RAID_TIER.Epic, null, 2, null, [1323, 1121], [50, 6], ELEMENTS.water, "2040007000_ex.png"),
@@ -75,6 +78,7 @@ window.RaidList = [
     new RaidData("Dragon (H)", 300171,RAID_TIER.A7, null, 3, null, null, null, ELEMENTS.earth, "2030004000_hard.png"),
     new RaidData("Yggdrasil (N)", 300181, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.earth, "2030015000.png"),
     new RaidData("Yggdrasil (H)", 300191, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.earth, "2030015000_hard.png"),
+//  new RaidData("Yggdrasil (H+)", 305041, RAID_TIER.B, null 1, null, null, null, ELEMENTS.earth, "2030015000_hard_plus.png"),
     new RaidData("Yggdrasil Omega", 300261, RAID_TIER.Magna, null, 3, null, [21], [2], ELEMENTS.earth, "2040027000_ex.png"),
     new RaidData("Medusa", 300391, RAID_TIER.Ancient, null, 2, null, [1333, 1131], [50, 6], ELEMENTS.earth, "2040059000_ex.png"),
     new RaidData("Baal", 301371, RAID_TIER.Epic, null, 2, null, [1333, 1131], [50, 6], ELEMENTS.earth, "2040013000_ex.png"),
@@ -85,6 +89,7 @@ window.RaidList = [
     new RaidData("Wisp (H)", 300201, RAID_TIER.A, null, 3, null, null, null, ELEMENTS.light, "2030027000_hard.png"),
     new RaidData("Adversa (N)", 300211, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.light, "2030035000.png"),
     new RaidData("Adversa (H)", 300221, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.light, "2030035000_hard.png"),
+//  new RaidData("Adversa (H+)", 305051, RAID_TIER.B, null 1, null, null, null, ELEMENTS.light, "2030035000_hard_plus.png"),
     new RaidData("Luminiera Omega", 300271, RAID_TIER.Magna, null, 3, null, [26], [2], ELEMENTS.light, "2040047000_ex.png"),
     new RaidData("Apollo", 300431, RAID_TIER.Ancient, null, 2, null, [1353, 1151], [50, 6], ELEMENTS.light, "2040023000_ex.png"),
     new RaidData("Odin", 300461, RAID_TIER.Epic, null, 2, null, [1353, 1151], [50, 6], ELEMENTS.light, "2040029000_ex.png"),
@@ -94,6 +99,7 @@ window.RaidList = [
     new RaidData("Eye (H)", 300231, RAID_TIER.A, null, 3, null, null, null, ELEMENTS.dark, "2030038000_hard.png"),
     new RaidData("Celeste (N)", 300241, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.dark, "2030041000.png"),
     new RaidData("Celeste (H)", 300251, RAID_TIER.B, null, 3, null, null, null, ELEMENTS.dark, "2030041000_hard.png"),
+//  new RaidData("Celeste (H+)", 305061, RAID_TIER.B, null 1, null, null, null, ELEMENTS.dark, "2030041000_hard_plus.png"),
     new RaidData("Celeste Omega", 300281, RAID_TIER.Magna, null, 3, null, [31], [2], ELEMENTS.dark, "2040046000_ex.png"),
     new RaidData("Olivia", 300401, RAID_TIER.Ancient, null, 2, null, [1363, 1161], [50, 6], ELEMENTS.dark, "2040005000_ex.png"),
     new RaidData("Lich", 300551, RAID_TIER.Epic, null, 2, null, [1363, 1161], [50, 6], ELEMENTS.dark, "2040012000_ex.png"),
@@ -116,10 +122,10 @@ window.RaidList = [
 
     new RaidData("Bahamut", 300291, RAID_TIER.Nightmare, 80, 3, 80, [58], [1], ELEMENTS.dark, "2030002000_hell.png"),
     new RaidData("Grand Order", 301051, RAID_TIER.Nightmare, 80, 2, 80, [82], [1], ELEMENTS.light, "2040065000_hell.png"),
-    //huan nightmare
-    //qilin nightmare
+    new RaidData("Huanglong", 301671, RAID_TIER.Nightmare, 80, 1, 80, [6005], [1], ELEMENTS.light, "2040157000_hell.png"),
+    new RaidData("Qilin", 301681, RAID_TIER.Nightmare, 80, 1, 80, [6005], [1], ELEMENTS.dark, "2040158000_hell.png"),
     new RaidData("Bahamut (HL)", 301061, RAID_TIER.Nightmare, 101, 1, 90, [59], [1], ELEMENTS.dark, "2040128000_hell.png"),
-    //huang & qil hl NM
+    new RaidData("Huanglong & Qilin (HL)", 303231, RAID_TIER.Nightmare, 120, 1, 90, [6005], [2], ELEMENTS.light, "2040157000_high.png"),
     new RaidData("Akasha", 303251, RAID_TIER.Nightmare, 150, 1, 90, [533], [3], ELEMENTS.light, "2040308000_high.png"),
     
     new RaidData("Rose Queen (HL)", 300471, RAID_TIER.Ancient, 101, 1, 50, [1204], [10], ELEMENTS.wind, "2040105000_high.png"),
