@@ -1,5 +1,5 @@
 /*globals SUPPLYTYPE*/
-//Test test test 
+
 //Templates
 const PLANNER_TEMPLATES = {
     orbs: {
@@ -19,7 +19,7 @@ const PLANNER_TEMPLATES = {
             Earth: 1032,
             Wind: 1042,
             Light: 1052,
-            Dark: 1062,
+            Dark: 1062
         }
     },
     whorls: {
@@ -119,10 +119,7 @@ const PLANNER_TEMPLATES = {
             Dark: 106,
             Silver: 107
     },
-    urns: {
-        type: SUPPLYTYPE.treasure,
-        Fire: 111, 
-        Water: 112, 
+    
     trialFragments: {
 //        __proto__: PlannerTemplate,
         type: SUPPLYTYPE.treasure,
@@ -522,13 +519,14 @@ window.PlannerData = {
 
     Revenant:{
         core: [
+            //Awakening
             new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.high.Light, 50),
             new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.scrolls.Light, 50),
             new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 50),
             new PlannerItem(1, SUPPLYTYPE.treasure, 1151, 50),
             new PlannerItem(1, SUPPLYTYPE.treasure, 2001, 50),
-//            createItem(1, SUPPLYTYPE.treasure, 1052, 50),
-
+            //crystals 100
+           
             new PlannerItem(2, SUPPLYTYPE.treasure, 1202, 250),
 
             //Upgrade 1
@@ -584,58 +582,121 @@ window.PlannerData = {
             new PlannerItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Dark, 3),
             new PlannerItem(8, PLANNER_ITEMS.rainbowPrism, 250),
             new PlannerItem(8, PLANNER_ITEMS.blueSkyCrystal, 30),
-            new PlannerItem(8, SUPPLYTYPE.evolution, 20004, 1) //Gold brick 1
-            //crystal 500
+            new PlannerItem(8, SUPPLYTYPE.evolution, 20004, 1), //Gold brick 1
+            //crystal 600
 
-            //7 Note: Given above step convention steps below are 9 even though comment says 7 and so on
-            //Update the format here:
-             
-            createItem(9, SUPPLYTYPE.treasure, 5011, 300),
-            createItem(9, SUPPLYTYPE.treasure, 5021, 300),
-            createItem(9, SUPPLYTYPE.treasure, 5031, 300),
-            createItem(9, SUPPLYTYPE.treasure, 5041, 300),
-            createItem(9, SUPPLYTYPE.treasure, 5051, 300),
-            createItem(9, SUPPLYTYPE.treasure, 5061, 300),
-            /*
-            silver relic shards 40  -- probably not in core
-            weapon stones 300 -- probably not in core
-            */
-
-           //8
-            createItem(10, SUPPLYTYPE.evolution, 20004, 1),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.centrum.silver, 10),
-            createItem(10, SUPPLYTYPE.treasure, 203, 10),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.legendaryMerit, 5),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.flawedPrism, 1500),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Fire, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Water, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Earth, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Wind, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Dark, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Fire, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Water, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Earth, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
-            createItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250),
-            /*
-            class distinctions 30 -- probably not in core
-            Revenant Weapon Fragment 100 -- probably not in core
-            Rusted Weapon 24 -- probably not in core
-           */
+           //7 Crafting an uncapped Silver relic
+            new PlannerItem(9, SUPPLYTYPE.treasure, 5011, 300),
+            new PlannerItem(9, SUPPLYTYPE.treasure, 5021, 300),
+            new PlannerItem(9, SUPPLYTYPE.treasure, 5031, 300),
+            new PlannerItem(9, SUPPLYTYPE.treasure, 5041, 300),
+            new PlannerItem(9, SUPPLYTYPE.treasure, 5051, 300),
+            new PlannerItem(9, SUPPLYTYPE.treasure, 5061, 300),
+           
+           //8 Creating a Golden Relic
+           new PlannerItem(10, SUPPLYTYPE.evolution, 20004, 1),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.centrums.Silver, 10),
+           new PlannerItem(10, SUPPLYTYPE.treasure, 203, 10),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.legendaryMerit, 5),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.flawedPrism, 1500),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Fire, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Water, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Earth, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Wind, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Dark, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Fire, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Water, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Earth, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250),
+           
         ],
         wtype: {
-            "Uno (spear)": null,
-            "Sorn (bow)": null,
-            "Sarasa (axe)": null,
-            "Feower (dagger)": null,
-            "Funf (staff)": null,
-            "Six (fist)": null,
-            "Siete (sword)": null,
-            "Okto (katana)": null,
-            "Nio (harp)": null,
-            "Esser (gun)": null,
+
+            //All need 24 rusted weapons of the same type as the Eternal.
+            
+            "Uno (spear)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4031, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5431, 40), 
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20421, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5611, 100),
+                ],
+            "Sorn (bow)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4081, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5481, 40), 
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20481, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5621, 100),
+                ],
+            "Sarasa (axe)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4041, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5441, 40), 
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20411, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5631, 100),
+                ],
+            "Feower (dagger)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4021, 300),
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5421, 40), 
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20461, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5641, 100),
+                ],
+            "Funf (staff)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4051, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5451, 40),
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20431, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5651, 100),
+                ],
+            "Six (fist)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4071, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5471, 40),
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20471, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5661, 100),
+                ],
+            "Siete (sword)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4011, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5411, 40),
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20691, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5671, 100),
+                ],
+            "Okto (katana)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4101, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5501, 40),
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20671, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 581, 100),
+                ],
+            "Nio (harp)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4091, 300),
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5491, 40), 
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20491, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5691, 100),
+                ],
+            "Esser (gun)": [
+                //7 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 4061, 300), 
+                new PlannerItem(9, SUPPLYTYPE.treasure, 5461, 40),
+                //8
+                new PlannerItem(10, SUPPLYTYPE.treasure, 20451, 30),
+                new PlannerItem(10, SUPPLYTYPE.treasure, 5701, 100),
+                ],
         },
         element: {
             Fire: null,
