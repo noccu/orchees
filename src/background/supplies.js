@@ -300,6 +300,9 @@ window.Supplies = {
         }
         return ret;
     },
+    getAll() {
+        return this.getType(Object.keys(this.index));
+    },
     /**Set the full treasure index, for use with game's supplies page.*/
     setTreasure: function (json) {
         //TODO: For weapon planner we need items we may not have yet. So gotta init a basic array from a datastore.
@@ -312,7 +315,7 @@ window.Supplies = {
 
         this.set(upd);
         this.save();
-        updateUI("setTreasure", upd); //TODO: merge the event to "update supplies" as it now sends through the type explicitly
+        updateUI("updSupplies", upd); //TODO: merge the event to "update supplies" as it now sends through the type explicitly
     },
     /**Set the full consumables index, for use with game's supplies page.*/
     setConsumables: function (json) {
@@ -365,15 +368,14 @@ window.Supplies = {
             }
             else { //Add new
                 item.count = item.delta;
-                this.set(item); //_upd not called with object = no this
+                this.set(item);
             }
         }
         for (let item of updArr) {
             _upd.call(this, item);
         }
 
-        updateUI("setTreasure", updArr.filter(e => e.type == SUPPLYTYPE.treasure));
-        updateUI("setConsumables", updArr.filter(e => SUPPLYTYPE.Consumables.includes(e.type)));
+        updateUI("updSupplies", updArr);
         this.save();
     },
     save: function() {
@@ -387,8 +389,7 @@ window.Supplies = {
                 Supplies.index = data.sup_idx || {};
 
                 devlog("Supply index loaded.");
-                updateUI("setTreasure", Supplies.getType(SUPPLYTYPE.treasure));
-                updateUI("setConsumables", Supplies.getType(SUPPLYTYPE.Consumables));
+//                updateUI("updSupplies", Supplies.getAll());
                 r();
             }
             Storage.get(["sup_idx"], _load);
@@ -500,7 +501,7 @@ function reduce (data) {
     }
 }
 
-function storeImminentRaidsTreasure (data) {
+function storePendingRaidsTreasure (data) {
     function parseHtml (s, decode) {
         let p = new DOMParser();
         return p.parseFromString(decode ? decodeURIComponent(s) : s, "text/html");
@@ -534,13 +535,13 @@ function storeImminentRaidsTreasure (data) {
         }
     }
 
-    Supplies.currentImminentRaids = store;
+    Supplies.pendingRaidHost = store;
     //lmao I could actually just store and save a whole list of raids slowly accrued and use that for speed. Even useful for building Raids/RaidList functionality!
 }
 
-function consumeImminentRaidsTreasure (data) {
-    if (data.json.result == "ok" && Supplies.currentImminentRaids) {
-        let itemData = Supplies.currentImminentRaids.find(x => x.questId == data.postData.quest_id && x.itemId == data.postData.use_item_id);
+function consumePendingRaidsTreasure (data) {
+    if (data.json.result == "ok" && Supplies.pendingRaidHost) {
+        let itemData = Supplies.pendingRaidHost.find(x => x.questId == data.postData.quest_id && x.itemId == data.postData.use_item_id);
         if (itemData) {
             let si = new SupplyItem(itemData.type, itemData.itemId, 0);
             si.delta = - itemData.num;
@@ -568,7 +569,7 @@ function weaponUncapStart(data) {
 }
 
 function npcUncapStart(data) {
-    var update = { id: data.url.match(/materials\/(\d+)\?/)[1],
+    var update = { id: data.url.match(/materials\/(\d+)/)[1],
                    items: [] };
 
 //    update.id = data.url.match(/materials\/(\d+)\?/)[1];
@@ -585,5 +586,42 @@ function uncapEnd(json) {
     if (Supplies.pendingUncap.id == json.new.id) {
         Supplies.update(Supplies.pendingUncap.items);
         delete Supplies.pendingUncap;
+    }
+}
+
+function storePendingJobUnlock(data) {
+    let items = [],
+        si;
+    for (let item of data.json.job.use_item) {
+        si = new SupplyItem(item.article_kind || SUPPLYTYPE.treasure, item.master.id, 0, item.master.name_en);
+        si.delta = - parseInt(item.use_item_number);
+        items.push(si);
+    }
+
+    Supplies.pendingJob = {id: data.master.id,
+                            cp: parseInt(data.job.use_job_point),
+                            items};
+}
+
+function consumePendingJobUnlock(data) {
+    if (data.json.success && data.postData.job_id == Supplies.pendingJob.id) {
+        Supplies.update(Supplies.pendingJob.items);
+        delete Supplies.pendingJob;
+    }
+}
+
+function storePendingForgeCCW (data) {
+    Supplies.pendingForge = {newWeapId: data.weapon_new.weapon_id,
+                            items: []};
+    for (let item of data.list) {
+        let si = new SupplyItem(item.kind, item.id, 0, item.item_name);
+        si.delta = - parseInt(item.article_num);
+        Supplies.pendingForge.items.push(si);
+    }
+}
+function consumePendingForgeCCW (data) {
+    if ((data.new_weapon || data.get_weapon) == Supplies.pendingForge.newWeapId) {
+        Supplies.update(Supplies.pendingForge.items);
+        delete Supplies.pendingForge;
     }
 }

@@ -6,15 +6,15 @@ Object.defineProperty(Array.prototype, "last", {get: function(){
 }});
 
 if (chrome.runtime) {
-    //Start logging network requests.
-    BackgroundPage.connect();
-    Network.listen();
-
+//    UI.planner.init();
+    //UI.battle.init();
     UI.initButtons();
     UI.time.keep();
     UI.time.initTimers();
     Unf.areaInfo.init();
-    //UI.battle.init();
+
+    BackgroundPage.connect();
+    Network.listen();
 }
 
 function devLog() {
@@ -105,44 +105,41 @@ function updateStatus (data) {
 function updateSupplies (idx) {
     if (idx) {
         var list = document.getElementById("supplies-list");
-        var temp;
+        var newItems;
 
         for (let item of idx) {
             let entry = document.getElementById(`${item.type}_${item.id}`);
-            if (entry) {
+            if (entry) { //update
                 entry.getElementsByClassName("collection-data")[0].textContent = item.count;
             }
-            else {
-                if (!temp) { temp = document.createElement("template"); }
-                var li = createSupplyItem(item);
-                temp.content.appendChild(li);
+            else { //add new
+                if (!newItems) { newItems = document.createElement("template"); }
+                newItems.content.appendChild(createSupplyItem(item));
             }
         }
-        if (temp) {
-            list.appendChild(temp.content);
+        if (newItems) {
+            list.appendChild(newItems.content);
         }
     }
 }
 
-function createSupplyItem (data) {
+function createSupplyItem (data, idPrefix) {
     if (!data.id) {
         console.warn("No id for item: ", data);
         return;
     }
     var t = document.getElementById("template-supply-item");
-/*    t.content.querySelector("li").title = name;
-    t.content.querySelector("img").src = thumb;
-    t.content.querySelector("div").textContent = num;*/
     let item = t.content.firstElementChild;
-    item.id = `${data.type}_${data.id}`;
-    let loc = data.location,
-        name = data.name;
-    item.title = loc ? `${name}\nGet from: ${loc}`: name;
+    item.id = `${idPrefix || ""}${data.type}_${data.id}`;
+    item.title = data.location ? `${data.name}\nGet from: ${data.location}`: data.name;
     item.getElementsByClassName("collection-icon")[0].src = data.path;
     item.getElementsByClassName("collection-data")[0].textContent = data.count;
     item.dataset.type = data.typeName;
     if (data.metaType) {
         item.dataset.metaType = data.metaType;
+    }
+    else {
+        delete item.dataset.metaType;
     }
 //    item.classList.add(data.typeName.replace(" ",""));
 
@@ -151,7 +148,7 @@ function createSupplyItem (data) {
 
 //Planner functions
 function createPlannerItem (item) {
-        let li = createSupplyItem(item);//TODO: uguu
+        let li = createSupplyItem(item, "p");
         li.querySelector(".collection-data").innerHTML = `<span class="planner-current">${item.count}</span> /<span class="planner-needed">${item.needed}</span>`;
         return li;
 }
@@ -168,11 +165,11 @@ function updateSeriesOptions (data) { //receives list of each option type.
 }
 
 function updatePlan () {  //Event handler
-    var plan = {series: UI.planner.display.series.value,
-                type: UI.planner.display.type.value,
-                element: UI.planner.display.element.value,
-                start: UI.planner.display.start.selectedIndex,
-                end: UI.planner.display.end.selectedIndex};
+    var plan = {series: UI.planner.dom.series.value,
+                type: UI.planner.dom.type.value,
+                element: UI.planner.dom.element.value,
+                start: UI.planner.dom.start.selectedIndex,
+                end: UI.planner.dom.end.selectedIndex};
     BackgroundPage.send("newPlanRequest", plan);
 }
 
@@ -210,43 +207,54 @@ function createRaid(raidEntry) {
 //    newRaid.content.querySelector(".raid-icon").src = "../../assets/images/quests/"+raidEntry.data.img.split('/').pop();
 //    devLog(raidEntry.data.img);
     newRaid.content.querySelector(".raid-cost").textContent = raidEntry.data.apCost;
-    
+
 //    newRaid.content.querySelector(".raid-hosts .current-value").textContent = raidEntry.data.dailyHosts - raidEntry.hosts.today;
     newRaid.content.querySelector(".raid-hosts .max-value").textContent = raidEntry.data.dailyHosts;
 
     newRaid = document.importNode(newRaid.content, true);
     newRaid.firstElementChild.entryObj = raidEntry;
     newRaid.firstElementChild.addEventListener("click", UI.raids.evhStartRaid);
-    updateRaidTrackingDisplay(newRaid.firstElementChild);
 
     if (raidEntry.data.matCost) {
         let matCost = newRaid.querySelector(".raid-host-mats");
+        let matEle = newRaidMat.content.querySelector(".raid-mat");
         for (let mat of raidEntry.data.matCost) {
-            newRaidMat.content.querySelector(".current-value").textContent = mat.supplyData.count;
+            matEle.dataset.matId = mat.id;
+            matEle.dataset.title = mat.supplyData.name;
+//            newRaidMat.content.querySelector(".current-value").textContent = mat.supplyData.count;
             newRaidMat.content.querySelector(".max-value").textContent = mat.num;
             newRaidMat.content.querySelector(".raid-mat-icon").src = mat.supplyData.path;
-            newRaidMat.content.querySelector(".raid-mat").dataset.matId = mat.id;
 //            newRaid.querySelector(".raid-name").dataset.url = raidEntry.data.urls[Object.keys(raidEntry.data.urls)[0]];
             matCost.appendChild(document.importNode(newRaidMat.content, true));
         }
     }
+    updateRaidTrackingDisplay(newRaid.firstElementChild);
 
     return newRaid;
 }
 
 function updateRaidTrackingDisplay(raidEle) {
     let raidEntry = raidEle.entryObj;
-    
+
     let hostsLeft = raidEntry.data.dailyHosts - raidEntry.hosts.today;
     raidEle.querySelector(".raid-hosts .current-value").textContent = hostsLeft;
 
+    if (raidEntry.data.matCost) {
+        let matCost = raidEle.querySelector(".raid-host-mats");
+        for (let mat of raidEntry.data.matCost) {
+            raidEle.querySelector(`[data-mat-id='${mat.id}'] .current-value`).textContent = mat.supplyData.count;
+        }
+    }
+
+
+    //CSS
     if (raidEntry.active) {
         raidEle.classList.remove("hidden");
     }
     else {
         raidEle.classList.add("hidden");
     }
-    
+
     if (hostsLeft == 0) {
         raidEle.classList.add("host-limit");
     }
@@ -255,17 +263,8 @@ function updateRaidTrackingDisplay(raidEle) {
     }
 }
 
-function populateRaids (raids) { //called when bg page sends response to reqRaidList.
+function populateRaids (raids) {
     let list = document.getElementById("raids-list");
-    let frag = document.createDocumentFragment();
-    for (let raid of raids) {
-        frag.appendChild(createRaid(raid));
-    }
-    list.appendChild(frag);
+    UI.setList(list, raids, createRaid);
     UI.raids.list = list.children;
-}
-
-function evhFilterRaids(e) { //called on changing filters
-    let filterData = e.dothings(); //TODO
-    BackgroundPage.send("reqRaidList", filterData);
 }
