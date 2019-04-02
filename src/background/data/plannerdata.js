@@ -610,7 +610,7 @@ window.PlannerData = {
            new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Earth, 250),
            new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
            new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250),
+           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250)
            
         ],
         wtype: {
