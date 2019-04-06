@@ -697,6 +697,14 @@ window.PlannerData = {
                 new PlannerItem(10, SUPPLYTYPE.treasure, 20451, 30),
                 new PlannerItem(10, SUPPLYTYPE.treasure, 5701, 100),
                 ],
+            templates: [
+               //7 
+               new PlannerItem(9, SUPPLYTYPE.treasure, 4061, 300), //Stones
+               new PlannerItem(9, SUPPLYTYPE.treasure, 5461, 40), //Silver fragments
+               //8
+               new PlannerItem(10, SUPPLYTYPE.treasure, 20451, 30), //Class Distinctions
+               new PlannerItem(10, SUPPLYTYPE.treasure, 5701, 100), //Revenant Fragments
+            ]
         },
         element: {
             Fire: null,
@@ -792,9 +800,7 @@ window.PlannerData = {
             templates: [
                 new PlannerItem(1, PLANNER_TEMPLATES.orbs.low, 250),
                 new PlannerItem(1, PLANNER_TEMPLATES.whorls, 250),
-
                 new PlannerItem(2, PLANNER_TEMPLATES.trialFragments, 20),
-                
                 new PlannerItem(3, PLANNER_TEMPLATES.quartz, 500),
                 new PlannerItem(3, PLANNER_TEMPLATES.urns, 30)
             ]
