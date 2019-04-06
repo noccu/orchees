@@ -221,10 +221,8 @@ function createRaid(raidEntry) {
         for (let mat of raidEntry.data.matCost) {
             matEle.dataset.matId = mat.id;
             matEle.dataset.title = mat.supplyData.name;
-//            newRaidMat.content.querySelector(".current-value").textContent = mat.supplyData.count;
             newRaidMat.content.querySelector(".max-value").textContent = mat.num;
             newRaidMat.content.querySelector(".raid-mat-icon").src = mat.supplyData.path;
-//            newRaid.querySelector(".raid-name").dataset.url = raidEntry.data.urls[Object.keys(raidEntry.data.urls)[0]];
             matCost.appendChild(document.importNode(newRaidMat.content, true));
         }
     }
@@ -238,14 +236,15 @@ function updateRaidTrackingDisplay(raidEle) {
 
     let hostsLeft = raidEntry.data.dailyHosts - raidEntry.hosts.today;
     raidEle.querySelector(".raid-hosts .current-value").textContent = hostsLeft;
+    let outOfMats = false;
 
     if (raidEntry.data.matCost) {
         let matCost = raidEle.querySelector(".raid-host-mats");
         for (let mat of raidEntry.data.matCost) {
             raidEle.querySelector(`[data-mat-id='${mat.id}'] .current-value`).textContent = mat.supplyData.count;
+            outOfMats = outOfMats || mat.supplyData.count < mat.num;
         }
     }
-
 
     //CSS
     if (raidEntry.active) {
@@ -255,7 +254,7 @@ function updateRaidTrackingDisplay(raidEle) {
         raidEle.classList.add("hidden");
     }
 
-    if (hostsLeft == 0) {
+    if (hostsLeft == 0 || outOfMats) {
         raidEle.classList.add("host-limit");
     }
     else {

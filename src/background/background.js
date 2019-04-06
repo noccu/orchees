@@ -17,7 +17,7 @@ Object.defineProperty(Array.prototype, "last", {
 
 function MainInit() {
     State.load()
-        .then(() => State.game.linkToTab())
+        .then(State.game.linkToTab)
         .then(Supplies.load)
         .then(Raids.load)
         .then(() => {
@@ -57,4 +57,9 @@ Enum.prototype.getName = function (value) {
 
 function getEnumNamedValue(list, val) { //for the simple plain obj enum actually used
     return Object.entries(list).find(x => x[1] == val)[0];
+}
+
+const DOM_PARSER = new DOMParser();
+function parseDom(data, mime) {
+    return DOM_PARSER.parseFromString(decodeURIComponent(data), mime || "text/html");
 }

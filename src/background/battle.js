@@ -3,10 +3,12 @@ const BATTLE_ACTION_TYPES = {dmgDealt: 1,
                              heal: 3};
 const BATTLE_ACTIONS = {attack: {name: "Attack"},
                         skill: {name: "Skill"},
-                        postAtkTrigger: {name: "Post-attack skill trigger"},
+                        triggerSkill: {name: "Triggered skill"},
+//                        postAtkTrigger: {name: "Post-attack skill trigger"},
                         ougi: {name: "Ougi"},
                         ougiEcho: {name: "Ougi echo"},
-                        effect: {name: "Effect (Reflect, DoT, etc)"},
+                        effect: {name: "Effect (Reflect, DoT, ...)"},
+                        healFffect: {name: "Heal effect (Refresh, Revitalize, ...)"},
                         counter: {name: "Counter"},
                         chain: {name: "Chain burst"},
                         bossAtk: {name: "Boss attack"},
@@ -197,6 +199,8 @@ function BattleActionData(action) {
     this.hits = 0;
     this.echoDmg = 0;
     this.echoHits = 0;
+    this.skillDmg = 0;
+    this.ougiDmg = 0;
     this.crits = 0;
     this.critDmg = 0;
     this.misses = 0;
@@ -208,7 +212,7 @@ function BattleActionData(action) {
 Object.defineProperties(BattleActionData.prototype, {
     totalDmg: {
         get() {
-            return this.dmg + this.echoDmg;
+            return this.dmg + this.echoDmg + this.skillDmg + this.ougiDmg;
         }
     },
     totalHits: {
@@ -299,6 +303,8 @@ function BattleCharData(id, name = "") {
         hits: 0,
         echoDmg: 0,
         echoHits: 0,
+        skillDmg: 0,
+        ougiDmg: 0,
         crits: 0,
         da: 0,
         ta: 0,
@@ -331,7 +337,16 @@ const battleCharStatsShared = {
         return safeDivide(this.ougis, this.instance.activeTurns) * 100;
     },
     get totalDmg() {
-        return this.dmg + this.echoDmg;
+        return this.dmg + this.echoDmg + this.skillDmg + this.ougiDmg;
+    },
+    get skillDmgPerc() {
+        return safeDivide(this.skillDmg, this.totalDmg) * 100;
+    },
+    get echoDmgPerc() {
+        return safeDivide(this.echoDmg, this.totalDmg) * 100;
+    },
+    get ougiDmgPerc() {
+        return safeDivide(this.ougiDmg, this.totalDmg) * 100;
     },
     get totalHits() {
         return this.hits + this.echoHits;
@@ -368,17 +383,27 @@ function battleParseDamage(input, actionData, type) {
                     actionData.dmgTaken[char] += parseInt(entry.value);
                     break;
                 case BATTLE_ACTION_TYPES.dmgDealt:
-                    if (entry.concurrent_attack_count > 0) {
-                        actionData.echoDmg += parseInt(entry.value);
+                    let dmg = parseInt(entry.value);
+                    if (entry.concurrent_attack_count > 0) { //echo
+                        actionData.echoDmg += dmg;
                         actionData.echoHits++;
                     }
                     else {
-                        actionData.dmg += parseInt(entry.value);
+                        switch(actionData.action) {
+                            case BATTLE_ACTIONS.skill:
+                                actionData.skillDmg += dmg;
+                                break;
+                            case BATTLE_ACTIONS.ougi:
+                                actionData.ougiDmg += dmg;
+                                break;
+                            default: //normal atk
+                                actionData.dmg += dmg;
+                        }
                         actionData.hits++;
                     }
 
-                    if (entry.critical) {
-                        actionData.critDmg += parseInt(entry.value);
+                    if (entry.critical) { //crit is not a "source" of dmg
+                        actionData.critDmg += dmg;
                         actionData.crits++;
                     }
                     if (entry.miss > 0) {
@@ -442,12 +467,10 @@ function battleUseAbility (json) {
                 break;
             case "heal":
                 if (action.to == "player") {
-//                    actionData = new BattleActionData(BATTLE_ACTIONS.selfHeal);
                     battleParseDamage(action.list, actionData, BATTLE_ACTION_TYPES.heal);
                     if (!actions.includes(actionData)) {
                         actions.push(actionData);
                     }
-//                    actionData.healTo = Battle.characters.getAtPos(action.pos);
                 }
                 break;
             case "contribution":
@@ -535,7 +558,8 @@ function battleAttack(json) {
                 //Attack-turn activated abilities (Athena, Nighthound, etc)
                 //Also some bosses cast them from buffs (e.g. Alex plain dmg buff)
                 if (action.to == "player") {
-                    actionData = new BattleActionData(BATTLE_ACTIONS.skill);
+                    actionData = new BattleActionData(BATTLE_ACTIONS.triggerSkill);
+                    actionData.name = action.name;
                     actionData.char = Battle.current.characters.getAtPos(action.pos).char;
                 }
                 else {//boss
@@ -558,7 +582,7 @@ function battleAttack(json) {
                 if (action.to == "boss") {
                     if (!isPlayerTurn) {
                         //If skill, char is already set and nothing else is needed here.
-                        if (actionData.action != BATTLE_ACTIONS.skill || actionData.dmgParsed) {
+                        if (actionData.action != BATTLE_ACTIONS.triggerSkill || actionData.dmgParsed) {
                             actionData = new BattleActionData(BATTLE_ACTIONS.effect);
                         }
                     }
@@ -569,7 +593,7 @@ function battleAttack(json) {
                     }
                     else if (actionData.action == BATTLE_ACTIONS.attack) {
                         let char = actionData.char;
-                        actionData = new BattleActionData(BATTLE_ACTIONS.postAtkTrigger);
+                        actionData = new BattleActionData(BATTLE_ACTIONS.triggerSkill);
                         actionData.char = char;
                     }
                     battleParseDamage(action.list, actionData, BATTLE_ACTION_TYPES.dmgDealt);
@@ -583,8 +607,14 @@ function battleAttack(json) {
                     }
                 }
                 break;
-            case "heal": //Must be part of atk or ougi, even if caused by ability. Can assume actionData was pushed.
+            case "heal":
                 if (action.to == "player") {
+                    //If heal comes from ougi or atk (drain) actionData is pushed to actions already, add it to that.
+                    if (actionData.action != BATTLE_ACTIONS.ougi && actionData.action != BATTLE_ACTIONS.attack) {
+                        //refresh, etc. Just kinda activates, no char, and no way to tell unless we try to store and track buffs, dealing with overwrites and stacking...
+                        actionData = new BattleActionData(BATTLE_ACTIONS.healFffect);
+                        actions.push(actionData);
+                    }
                     battleParseDamage(action.list, actionData, BATTLE_ACTION_TYPES.heal);
                 }
                 break;
@@ -646,6 +676,8 @@ function updateBattleStats(actionData) {
         charStats.dmg += actionData.dmg;
         charStats.echoHits += actionData.echoHits;
         charStats.echoDmg += actionData.echoDmg;
+        charStats.skillDmg += actionData.skillDmg;
+        charStats.ougiDmg += actionData.ougiDmg;
         charStats.crits += actionData.crits;
         if (actionData.action == BATTLE_ACTIONS.ougi) {
             charStats.ougis++;
