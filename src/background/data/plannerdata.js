@@ -138,7 +138,33 @@ const PLANNER_TEMPLATES = {
         Wind: 114,
         Light: 115,
         Dark: 116
-    }
+    },
+    relicShards: {
+        type: SUPPLYTYPE.treasure,
+        Sword: 5411,
+        Dagger: 5421,
+        Spear: 5431,
+        Axe: 5441,
+        Staff: 5451,
+        Gun: 5461,
+        Fist: 5471,
+        Bow: 5481,
+        Harp: 5491,
+        Katana: 5501
+    },
+    revenantFragments: {
+        type: SUPPLYTYPE.treasure,
+        Sword: 5671,
+        Dagger: 5641,
+        Spear: 5611,
+        Axe: 5631,
+        Staff: 5651,
+        Gun: 5701,
+        Fist: 5661,
+        Bow: 5621,
+        Harp: 5691,
+        Katana: 5681
+    },
 };
 
 const PLANNER_ITEMS = {
@@ -585,32 +611,32 @@ window.PlannerData = {
             new PlannerItem(8, SUPPLYTYPE.evolution, 20004, 1), //Gold brick 1
             //crystal 600
 
-           //7 Crafting an uncapped Silver relic
-            new PlannerItem(9, SUPPLYTYPE.treasure, 5011, 300),
-            new PlannerItem(9, SUPPLYTYPE.treasure, 5021, 300),
-            new PlannerItem(9, SUPPLYTYPE.treasure, 5031, 300),
-            new PlannerItem(9, SUPPLYTYPE.treasure, 5041, 300),
-            new PlannerItem(9, SUPPLYTYPE.treasure, 5051, 300),
-            new PlannerItem(9, SUPPLYTYPE.treasure, 5061, 300),
+           //8 Crafting an uncapped Silver relic
+            new PlannerItem(10, SUPPLYTYPE.treasure, 5011, 300),
+            new PlannerItem(10, SUPPLYTYPE.treasure, 5021, 300),
+            new PlannerItem(10, SUPPLYTYPE.treasure, 5031, 300),
+            new PlannerItem(10, SUPPLYTYPE.treasure, 5041, 300),
+            new PlannerItem(10, SUPPLYTYPE.treasure, 5051, 300),
+            new PlannerItem(10, SUPPLYTYPE.treasure, 5061, 300),
            
-           //8 Creating a Golden Relic
-           new PlannerItem(10, SUPPLYTYPE.evolution, 20004, 1),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.centrums.Silver, 10),
-           new PlannerItem(10, SUPPLYTYPE.treasure, 203, 10),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.legendaryMerit, 5),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_ITEMS.flawedPrism, 1500),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Fire, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Water, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Earth, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Wind, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Dark, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Fire, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Water, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Earth, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
-           new PlannerItem(10, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250)
+           //9 Creating a Golden Relic
+           new PlannerItem(11, SUPPLYTYPE.evolution, 20004, 1),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.centrums.Silver, 10),
+           new PlannerItem(11, SUPPLYTYPE.treasure, 203, 10),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_ITEMS.legendaryMerit, 5),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_ITEMS.flawedPrism, 1500),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Fire, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Water, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Earth, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Wind, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Dark, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Fire, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Water, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Earth, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Wind, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Light, 250),
+           new PlannerItem(11, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.orbs.low.Dark, 250)
            
         ],
         wtype: {
@@ -618,92 +644,39 @@ window.PlannerData = {
             //All need 24 rusted weapons of the same type as the Eternal.
             
             "Uno (spear)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4031, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5431, 40), 
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20421, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5611, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20421, 30)
                 ],
             "Sorn (bow)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4081, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5481, 40), 
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20481, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5621, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20481, 30)
                 ],
             "Sarasa (axe)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4041, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5441, 40), 
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20411, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5631, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20411, 30)
                 ],
             "Feower (dagger)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4021, 300),
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5421, 40), 
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20461, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5641, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20461, 30)
                 ],
             "Funf (staff)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4051, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5451, 40),
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20431, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5651, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20431, 30)
                 ],
             "Six (fist)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4071, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5471, 40),
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20471, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5661, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20471, 30)
                 ],
             "Siete (sword)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4011, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5411, 40),
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20691, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5671, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20691, 30)
                 ],
             "Okto (katana)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4101, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5501, 40),
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20671, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 581, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20671, 30)
                 ],
             "Nio (harp)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4091, 300),
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5491, 40), 
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20491, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5691, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20491, 30)
                 ],
             "Esser (gun)": [
-                //7 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 4061, 300), 
-                new PlannerItem(9, SUPPLYTYPE.treasure, 5461, 40),
-                //8
-                new PlannerItem(10, SUPPLYTYPE.treasure, 20451, 30),
-                new PlannerItem(10, SUPPLYTYPE.treasure, 5701, 100),
+                new PlannerItem(11, SUPPLYTYPE.treasure, 20451, 30)
                 ],
             templates: [
-               //7 
-               new PlannerItem(9, SUPPLYTYPE.treasure, 4061, 300), //Stones
-               new PlannerItem(9, SUPPLYTYPE.treasure, 5461, 40), //Silver fragments
-               //8
-               new PlannerItem(10, SUPPLYTYPE.treasure, 20451, 30), //Class Distinctions
-               new PlannerItem(10, SUPPLYTYPE.treasure, 5701, 100), //Revenant Fragments
+               new PlannerItem(9, PLANNER_TEMPLATES.relicShards, 40), //Silver fragments
+               new PlannerItem(10, PLANNER_TEMPLATES.stones, 300), //Stones
+               new PlannerItem(11, PLANNER_TEMPLATES.revenantFragments, 100) //Revenant Fragments
             ]
         },
         element: {
@@ -746,7 +719,7 @@ window.PlannerData = {
                 new PlannerItem(7, PLANNER_TEMPLATES.omegaItem, 60),
             ]
         },
-        stepNames: ["Revenant", "Awaken", "Elechange", "Upgrade 1", "Upgrade 2", "Upgrade 3", "Upgrade 4", "Upgrade 5", "Upgrade 6"],
+        stepNames: ["Revenant", "Awaken", "Elechange", "Upgrade 1", "Upgrade 2", "Upgrade 3", "Upgrade 4", "Upgrade 5", "Upgrade 6", 'Silver Relic', 'Silver Uncap','Golden Relic'],
         typeNames: {
             "Uno (spear)": "Spear",
             "Sorn (bow)": "Bow",
