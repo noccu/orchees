@@ -779,9 +779,7 @@ window.PlannerData = {
             Harp: null,
             Katana: null,
             templates: [
-                new PlannerItem(3, PLANNER_TEMPLATES.stones, 500),
-                new PlannerItem(3, PLANNER_TEMPLATES.quartz, 500),
-                new PlannerItem(3, PLANNER_TEMPLATES.urns, 30)
+                new PlannerItem(3, PLANNER_TEMPLATES.stones, 500)
             ]
         },
         element: {
@@ -795,7 +793,10 @@ window.PlannerData = {
                 new PlannerItem(1, PLANNER_TEMPLATES.orbs.low, 250),
                 new PlannerItem(1, PLANNER_TEMPLATES.whorls, 250),
 
-                new PlannerItem(2, PLANNER_TEMPLATES.trialFragments, 20)
+                new PlannerItem(2, PLANNER_TEMPLATES.trialFragments, 20),
+                
+                new PlannerItem(3, PLANNER_TEMPLATES.quartz, 500),
+                new PlannerItem(3, PLANNER_TEMPLATES.urns, 30)
             ]
         },
         stepNames: ["Rusted", "Relic", "Atma", "Ultima"]

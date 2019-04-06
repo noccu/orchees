@@ -7,8 +7,8 @@
         <script type="text/javascript" src="message.js"></script>
         <script type="text/javascript" src="network.js"></script>
         <script type="text/javascript" src="../../lib/Chart.min.js"></script>
-        <script type="text/javascript" src="ui.js"></script>
-        <script  type="text/javascript" src="unf.js"></script>
+        <script type="text/javascript" src="ui.js" defer></script>
+        <script  type="text/javascript" src="unf.js" defer></script>
         <script  type="text/javascript" src="battleUI.js" defer></script>
         <script type="text/javascript" src="main.js" defer></script>
     </head>
@@ -85,13 +85,13 @@
         </div>
         <div id="tabs">
             <ul id="nav" class="tablist navlist">
-                <li class="nav-tab" data-navpage="dailies">Dailies</li>
+                <li class="nav-tab active" data-navpage="dailies">Dailies</li>
                 <li class="nav-tab" data-navpage="raids">Raids</li>
-                <li class="nav-tab active" data-navpage="supplies">Inventory</li>
+                <li class="nav-tab" data-navpage="supplies">Inventory</li>
                 <li class="nav-tab" data-navpage="battle">Battle</li>
                 <li class="nav-tab" data-navpage="unf">UNF</li>
             </ul>
-            <div id="dailies" class="tab">
+            <div id="dailies" class="tab active">
                 <div id="pendants-panel" class="panel">
                     <span class="panel-header" data-event="collapse">Pendants</span>
                     <ul class="panel-content">
@@ -111,10 +111,9 @@
                     </ul>
                 </div>
             </div>
-            <div id="supplies" class="tab active">
+            <div id="supplies" class="tab">
                 <ul id="nav-supplies" class="tab-view-list navlist">
                     <li class="tab-view active" data-navpage="supplies-view">Inventory</li>
-<!--                    <li class="tab-view" data-navpage="consumables-view">Consumables</li>-->
                     <li class="tab-view" data-navpage="planner-view">Planner</li>
                 </ul>
                 <div class="spacer"></div>
@@ -134,7 +133,8 @@
                                 <ul id="supplies-filter">
                                     <li class="active" data-event="filter" data-value="ALL">All</li>
 <!--                                    Todo: fill list programatically-->
-                                    <li data-event="filter" data-value="Consumables" data-meta="true">Consumabes</li>
+                                    <li data-event="filter" data-value="Consumables" data-meta="true">Consumables</li>
+                                    <li data-event="filter" data-value="Currencies" data-meta="true">Currencies</li>
                                     <li data-event="filter" data-value="Treasure">Treasure</li>
                                     <li data-event="filter" data-value="Rings">Rings</li>
                                     <li data-event="filter" data-value="Gauph Keys">Keys</li>
@@ -230,6 +230,7 @@
                                 <li data-event="filter" data-value="INACTIVE">Inactive</li>
 <!--                                Values here should be synced to raiddata.js-->
                                 <li data-event="filter" data-value="HL">HL</li>
+                                <span class="sep-v"></span>
                                 <li data-event="filter" data-value="fire">Fire</li>
                                 <li data-event="filter" data-value="water">Water</li>
                                 <li data-event="filter" data-value="earth">Earth</li>
@@ -237,6 +238,16 @@
                                 <li data-event="filter" data-value="light">Light</li>
                                 <li data-event="filter" data-value="dark">Dark</li>
                                 <li data-event="filter" data-value="noEle">Null</li>
+                                <span class="sep-v"></span>
+                                <li data-event="filter" data-value="A">A</li>
+                                <li data-event="filter" data-value="B">B</li>
+                                <li data-event="filter" data-value="Magna">Magna</li>
+                                <li data-event="filter" data-value="Ancient">Ancient</li>
+                                <li data-event="filter" data-value="Epic">Epic</li>
+                                <li data-event="filter" data-value="Nightmare">Nightmare</li>
+                                <li data-event="filter" data-value="Primarch">Primarch</li>
+                                <li data-event="filter" data-value="Genesis">Genesis</li>
+                                <li data-event="filter" data-value="Ultimate">Ultimate</li>
                             </ul>
                         </div>
                         <ul id="raids-list" class="raid-list"></ul>
@@ -276,15 +287,35 @@
                                 </div>
                                 <div class="battle-stats-container">
                                     <div class="battle-stats-group chara">
-                                        <div class="battle-stats" data-stat="totalDmg">Dmg: <span>0</span></div>
-                                        <div class="battle-stats" data-stat="avgDmg">Avg Dmg: <span>0</span></div>
+                                        <div class="battle-stats" data-stat="totalDmg">Total dmg: <span>0</span></div>
+                                        <div class="battle-stats" data-stat="avgDmg">Avg dmg: <span>0</span></div>
                                     </div>
                                     <div class="battle-stats-group chara">
                                         <div class="battle-stats" data-stat="daRate">DA: <span data-deci="true">0</span>%</div>
                                         <div class="battle-stats" data-stat="taRate">TA: <span data-deci="true">0</span>%</div>
                                     </div>
-                                    <div class="battle-stats" data-stat="critRate">Crit: <span data-deci="true">0</span>%</div>
-                                    <div class="battle-stats" data-stat="ougiRate">Ougi: <span data-deci="true">0</span>%</div>
+                                    <div class="battle-stats" data-stat="critRate">Crit rate: <span data-deci="true">0</span>%</div>
+                                    <div class="battle-stats" data-stat="ougiRate">Ougi rate: <span data-deci="true">0</span>%</div>
+                                    
+                                    <div class="sep" data-event="collapse" data-in="panel" data-id="cStatDmgB"></div>
+                                    <div class="battle-stats-container">
+                                        <div class="battle-stats-group chara">
+                                            <div class="battle-stats" data-stat="skillDmg">Skill dmg: <span>0</span></div>
+                                            <div class="battle-stats" data-stat="echoDmg">Echo dmg: <span>0</span></div>
+                                        </div>
+                                        <div class="battle-stats-group chara">
+                                            <div class="battle-stats" data-stat="skillDmgPerc">Skill %: <span>0</span></div>
+                                            <div class="battle-stats" data-stat="echoDmgPerc">Echo %: <span>0</span></div>
+                                        </div>
+                                        <div class="battle-stats" data-stat="ougiDmg">Ougi dmg: <span>0</span></div>
+                                        <div class="battle-stats" data-stat="ougiDmgPerc">Ougi %: <span>0</span>%</div>
+                                    </div>
+                                    
+                                    <div class="sep" data-event="collapse" data-in="panel" data-id="cStatHeal"></div>
+                                    <div class="battle-stats-container">
+                                        <div class="battle-stats" data-stat="selfHealing">Heal (self): <span>0</span></div>
+                                        <div class="battle-stats" data-stat="teamHealing">Heal (team): <span>0</span></div>
+                                    </div>
                                 </div>
                             </div>
                         </template>

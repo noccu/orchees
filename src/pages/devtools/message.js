@@ -34,6 +34,7 @@ window.BackgroundPage = {
                 break;
             case "init_plannerSeriesList":
                 UI.planner.init(msg.data);
+//                UI.planner.populateSelection("series", msg.data);
                 break;
             case "init_unfEdition":
                 Unf.edition = msg.data;
@@ -47,11 +48,9 @@ window.BackgroundPage = {
             case "updStatus":
                 updateStatus(msg.data);
                 break;
-            case "setTreasure":
-            case "setConsumables":
+            case "updSupplies":
                 updateSupplies(msg.data);
-//                updateConsumables(msg.data);
-                syncPlanner(msg.data, "treasure");
+                syncPlanner(msg.data);
                 break;
             case "newPlannerSeriesOptions":
                 updateSeriesOptions(msg.data);
@@ -78,6 +77,9 @@ window.BackgroundPage = {
                 break;
             case "updRaid":
                 UI.raids.update(msg.data);
+                break;
+            default:
+                window.dispatchEvent(msg.action, msg.data);
         }
     }
 };

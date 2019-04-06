@@ -45,6 +45,7 @@ function hear (msg) {
                 case url.ismatch("user/content/index"): //Homepage
                     Profile.pendants.set(msg.data.json);
                     Profile.status.set(msg.data.json.option.mydata_assets.mydata.status);
+                    setCurrencies(msg.data.json);
                     break;
                 case url.ismatch("user/status"):
                     Profile.status.set(msg.data.json.status);
@@ -95,7 +96,7 @@ function hear (msg) {
                     break;
                 case url.ismatch("rest/raid/start"):
                 case url.ismatch("rest/multiraid/start"):
-                    Battle.log.reset(msg.data.json);
+                    Battle.reset(msg.data.json);
                     break;
                 case url.ismatch("shop_exchange/purchase"):
                     purchaseItem(msg.data.json);
@@ -122,16 +123,41 @@ function hear (msg) {
                     */
                 case url.ismatch("quest/treasure_raid"):
                 case /treasureraid\d+\/top\/content\/newindex/.test(url):
-                    storeImminentRaidsTreasure(msg.data);
+                    storePendingRaidsTreasure(msg.data);
                     break;
                 case url.ismatch("quest/create_quest"):
                     if (msg.data.json.result == "ok") {
-                        consumeImminentRaidsTreasure(msg.data);
+                        consumePendingRaidsTreasure(msg.data);
                         Raids.update({
                             action: "hosted",
                             id: msg.data.postData.quest_id
                         });
                     }
+                    break;
+                case url.ismatch("disabled_job/"):
+                    storePendingJobUnlock(msg.data.json);
+                    break;
+                case url.ismatch("party/release_job"):
+                    consumePendingJobUnlock(msg.data);
+                    break;
+                case url.ismatch("archaic/job/replica_exchange/"):
+                case url.ismatch("archaic/job/original_exchange/"):
+                case url.ismatch("archaic/job/rebuilt_exchange/"):
+                    storePendingForgeCCW(msg.data.json);
+                    break;
+                case url.ismatch("archaic/job/replica_exchange_result"):
+                case url.ismatch("archaic/job/original_exchange_result"):
+                case url.ismatch("archaic/job/rebuilt_exchange_result"):
+                    consumePendingForgeCCW(msg.data.postData);
+                    break;
+                //There is a confirm for _all which triggers if not checking end of path, hence split.
+                case url.ismatch("present/receive?"):
+                case url.ismatch("present/receive_all?"):
+                    //is  normally followed by article list but that only shows treasure. There's more to pick up than that...
+                    cratePickup(msg.data.json);
+                    break;
+                case url.ismatch("rest/title/par_claim"): //trophy pickup
+                    trophyPickup(msg.data.json);
             }
             break;
         case "plannerSeriesChange":
