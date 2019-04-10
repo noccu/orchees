@@ -551,7 +551,7 @@ window.PlannerData = {
             new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.whorls.Light, 50),
             new PlannerItem(1, SUPPLYTYPE.treasure, 1151, 50),
             new PlannerItem(1, SUPPLYTYPE.treasure, 2001, 50),
-            new PlannerItem(1, SUPPLYTYPE.treasure, 0, 100),
+            new PlannerItem(1, SUPPLYTYPE.crystals, 0, 100),
             new PlannerItem(2, SUPPLYTYPE.treasure, 1202, 250),
 
             //Upgrade 1
@@ -560,7 +560,7 @@ window.PlannerData = {
             new PlannerItem(3, SUPPLYTYPE.treasure, 8, 100),
             new PlannerItem(3, PLANNER_ITEMS.supremeMerit, 10),
             new PlannerItem(3, PLANNER_ITEMS.blueSkyCrystal, 3),
-            new PlannerItem(3, SUPPLYTYPE.treasure, 0, 100),
+            new PlannerItem(3, SUPPLYTYPE.crystals, 0, 100),
 
             //2
             new PlannerItem(4, SUPPLYTYPE.treasure, 6, 100),
@@ -568,7 +568,7 @@ window.PlannerData = {
             new PlannerItem(4, SUPPLYTYPE.treasure, 28, 100),
             new PlannerItem(4, PLANNER_ITEMS.rainbowPrism, 50),
             new PlannerItem(4, PLANNER_ITEMS.blueSkyCrystal, 5),
-            new PlannerItem(4, SUPPLYTYPE.treasure, 0, 200),
+            new PlannerItem(4, SUPPLYTYPE.crystals, 0, 200),
 
             //3
             new PlannerItem(5, SUPPLYTYPE.treasure, 3, 300),
@@ -576,7 +576,7 @@ window.PlannerData = {
             new PlannerItem(5, SUPPLYTYPE.treasure, 39, 80),
             new PlannerItem(5, PLANNER_ITEMS.supremeMerit, 10),
             new PlannerItem(5, PLANNER_ITEMS.blueSkyCrystal, 7),
-            new PlannerItem(5, SUPPLYTYPE.treasure, 0, 300),
+            new PlannerItem(5, SUPPLYTYPE.crystals, 0, 300),
 
             //4
             new PlannerItem(6, SUPPLYTYPE.treasure, 17, 100),
@@ -584,7 +584,7 @@ window.PlannerData = {
             new PlannerItem(6, SUPPLYTYPE.treasure, 40, 80),
             new PlannerItem(6, PLANNER_ITEMS.rainbowPrism, 150),
             new PlannerItem(6, PLANNER_ITEMS.blueSkyCrystal, 10),
-            new PlannerItem(6, SUPPLYTYPE.treasure, 0, 400),
+            new PlannerItem(6, SUPPLYTYPE.crystals, 0, 400),
             //5
             new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.omegaItem.Wind, 20),
             new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.omegaItem.Fire, 20),
@@ -595,7 +595,7 @@ window.PlannerData = {
             new PlannerItem(7, PLANNER_ITEMS.antiqueCloth, 100),
             new PlannerItem(7, PLANNER_ITEMS.supremeMerit, 10),
             new PlannerItem(7, PLANNER_ITEMS.blueSkyCrystal, 15),
-            new PlannerItem(7, SUPPLYTYPE.treasure, 0, 500),
+            new PlannerItem(7, SUPPLYTYPE.crystals, 0, 500),
             //6
             new PlannerItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Fire, 3),
             new PlannerItem(8, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.trueAnima.Water, 3),
@@ -606,7 +606,7 @@ window.PlannerData = {
             new PlannerItem(8, PLANNER_ITEMS.rainbowPrism, 250),
             new PlannerItem(8, PLANNER_ITEMS.blueSkyCrystal, 30),
             new PlannerItem(8, SUPPLYTYPE.evolution, 20004, 1), //Gold brick 1
-            new PlannerItem(8, SUPPLYTYPE.treasure, 0, 600),
+            new PlannerItem(8, SUPPLYTYPE.crystals, 0, 600),
 
            //8 Crafting an uncapped Silver relic
             new PlannerItem(10, SUPPLYTYPE.treasure, 5011, 300),
