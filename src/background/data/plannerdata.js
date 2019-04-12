@@ -311,8 +311,8 @@ window.PlannerData = {
             new PlannerItem(7, PLANNER_ITEMS.sephiraStone, 30),
             //new PlannerItem(7, Evolite)
         ],
-        Summon: { //Summon specific items
-            "Justice":[
+        wtype: { //Summon specific items
+            "Justice (Maria Theresa)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25007, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 6),
@@ -351,7 +351,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25007, 20)
             ],
-            "The Hanged Man":[
+            "The Hanged Man (Caim)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25008, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 6),
@@ -390,7 +390,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25008, 20) //idean
             ],
-            "Death":[
+            "Death (Nier)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25009, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 6),
@@ -430,7 +430,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25009, 20) //idean
             ],
-            "Temperance":[
+            "Temperance (Estarriola)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25010, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 6),
@@ -469,7 +469,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25010, 20) //idean
             ],
-            "The Devil":[
+            "The Devil (Fraux)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25011, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 6),
@@ -508,7 +508,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25011, 20) //idean
             ],
-            "The Tower":[
+            "The Tower (Lobelia)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25012, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 6),
@@ -547,7 +547,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25012, 20) //idean
             ],
-            "The Star":[
+            "The Star (Geisenborger)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25013, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 6),
@@ -587,7 +587,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25013, 20) //idean
             ],
-            "The Moon":[
+            "The Moon (Haaselia)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25007, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 6),
@@ -626,7 +626,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25014, 20) //idean
             ],
-            "The Sun":[
+            "The Sun (Alanaan)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25015, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 6),
@@ -665,7 +665,7 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25015, 20) //idean
             ],
-            "Judgement":[
+            "Judgement (Katzelia)":[
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 3), 
                 new PlannerItem(0, SUPPLYTYPE.treasure, 25016, 2), //idean
                 new PlannerItem(0, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 6),
@@ -704,6 +704,9 @@ window.PlannerData = {
                 new PlannerItem(7, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 200),
                 new PlannerItem(7, SUPPLYTYPE.treasure, 25016, 20) //idean
             ]
+        },
+        element: {
+            Dark: null //no special items, but name needed for option parsing (well not really, but it's nice)
         },
         stepNames: ["Obtain 0*", "SR 1*", "SR 2*", "SR 3*", "SSR 3*", "SSR 4*", "SSR 5*", "Recruitment"]
     },
