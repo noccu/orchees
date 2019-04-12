@@ -589,7 +589,7 @@ window.PlannerData = {
             ],
             "The Moon (Haaselia)":[
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3), 
-                new PlannerItem(1, SUPPLYTYPE.treasure, 25007, 2), //idean
+                new PlannerItem(1, SUPPLYTYPE.treasure, 25014, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Water, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25021, 1), //haze
