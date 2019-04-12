@@ -708,7 +708,7 @@ window.PlannerData = {
         element: {
             Dark: null //no special items, but name needed for option parsing (well not really, but it's nice)
         },
-        stepNames: ["Obtain 0*", "SR 1*", "SR 2*", "SR 3*", "SSR 3*", "SSR 4*", "SSR 5*", "Recruitment"]
+        stepNames: ["Select step","Obtain 0*", "SR 1*", "SR 2*", "SR 3*", "SSR 3*", "SSR 4*", "SSR 5*", "Recruitment"]
     },
 
     Bahamut: {
