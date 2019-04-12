@@ -419,7 +419,7 @@ window.PlannerData = {
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25021, 24), //haze
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25009, 25), //idean
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 120),
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 60),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25035, 10), //fragment
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25021, 32), //haze
                 new PlannerItem(7, SUPPLYTYPE.treasure, 20661, 100),
