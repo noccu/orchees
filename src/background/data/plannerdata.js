@@ -114,7 +114,7 @@ const PLANNER_TEMPLATES = {
         Wind: 18,
         Light: 26,
         Dark: 31
-        },       
+        },
         tierOne: {
         type: SUPPLYTYPE.treasure,
         Fire: 64,
@@ -313,32 +313,32 @@ window.PlannerData = {
         ],
         wtype: { //Summon specific items
             "Justice (Maria Theresa)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25007, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Water, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25021, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25007, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Water, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25021, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25007, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Water, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25021, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25007, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Water, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25021, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25007, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 507, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25021, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25007, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25034, 10), //fragment
@@ -352,32 +352,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25007, 20)
             ],
             "The Hanged Man (Caim)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25008, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Earth, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25021, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25008, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Earth, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25021, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25008, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Earth, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25021, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25008, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Earth, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25021, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25008, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 508, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25021, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25008, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25033, 10), //fragment
@@ -391,33 +391,33 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25008, 20) //idean
             ],
             "Death (Nier)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25009, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Dark, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25021, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25009, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 8),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Dark, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25021, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25009, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 15),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Dark, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25021, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25009, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 25),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Dark, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25021, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25009, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 40),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 507, 10),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 508, 10),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25021, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Dark, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25009, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Dark, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25035, 10), //fragment
@@ -431,32 +431,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25009, 20) //idean
             ],
             "Temperance (Estarriola)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25010, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Wind, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25020, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25010, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Wind, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25020, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25010, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Wind, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25020, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25010, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Wind, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25020, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25010, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 509, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25020, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25010, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25035, 10), //fragment
@@ -470,32 +470,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25010, 20) //idean
             ],
             "The Devil (Fraux)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25011, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Fire, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25020, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25011, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Fire, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25020, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25011, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Fire, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25020, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25011, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Fire, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25020, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25011, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 506, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25020, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25011, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25033, 10), //fragment
@@ -509,32 +509,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25011, 20) //idean
             ],
             "The Tower (Lobelia)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25012, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Earth, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25021, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25012, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Earth, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25021, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25012, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Earth, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25021, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25012, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Earth, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25021, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25012, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 508, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25021, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Earth, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25012, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Earth, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25035, 10), //fragment
@@ -548,33 +548,33 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25012, 20) //idean
             ],
             "The Star (Geisenborger)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25013, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Light, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25020, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25013, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 8),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Light, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25020, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25013, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 15),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Light, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25020, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25013, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 25),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Light, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25020, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25013, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 40),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 506, 10),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 509, 10),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25020, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Light, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25013, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Light, 60),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25035, 10), //fragment
@@ -588,32 +588,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25013, 20) //idean
             ],
             "The Moon (Haaselia)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25014, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Water, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25021, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25014, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Water, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25021, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25014, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Water, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25021, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25014, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Water, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25021, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25014, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 507, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25021, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Water, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25014, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Water, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25034, 10), //fragment
@@ -627,32 +627,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25014, 20) //idean
             ],
             "The Sun (Alanaan)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25015, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Fire, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25020, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25015, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Fire, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25020, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25015, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Fire, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25020, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25015, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Fire, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25020, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25015, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 506, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25020, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Fire, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25015, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Fire, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25033, 10), //fragment
@@ -666,32 +666,32 @@ window.PlannerData = {
                 new PlannerItem(8, SUPPLYTYPE.treasure, 25015, 20) //idean
             ],
             "Judgement (Katzelia)":[
-                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 3), 
+                new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 3),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25016, 2), //idean
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 6),
                 new PlannerItem(1, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.omegaMagna.Wind, 30),
                 new PlannerItem(1, SUPPLYTYPE.treasure, 25020, 1), //haze
-                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 5), 
+                new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 5),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25016, 3), //idean
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 16),
                 new PlannerItem(2, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.quartz.Wind, 100),
                 new PlannerItem(2, SUPPLYTYPE.treasure, 25020, 3), //haze
-                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 10), 
+                new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 10),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25016, 5), //idean
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierOne.Wind, 30),
                 new PlannerItem(3, SUPPLYTYPE.treasure, 25020, 7), //haze
-                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 15), 
+                new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 15),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25016, 7), //idean
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 50),
                 new PlannerItem(4, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.anima.tierTwo.Wind, 30),
                 new PlannerItem(4, SUPPLYTYPE.treasure, 25020, 16), //haze
-                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 30), 
+                new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 30),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25016, 15), //idean
                 new PlannerItem(5, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 80),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 509, 20),
                 new PlannerItem(5, SUPPLYTYPE.treasure, 25020, 24), //haze
-                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 45), 
+                new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.astras.Wind, 45),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25016, 25), //idean
                 new PlannerItem(6, SUPPLYTYPE.treasure, PLANNER_TEMPLATES.verumProofs.Wind, 120),
                 new PlannerItem(6, SUPPLYTYPE.treasure, 25034, 10), //fragment
