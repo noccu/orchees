@@ -281,6 +281,7 @@ function useRecoveryItem(json) {
         Profile.status.bp.current = json.result.after;
     }
     updateUI("updStatus", Profile.status);
+    updateUI("updRaid", Raids.getList());
 }
 
 function twitterRecovery(json) {
@@ -289,5 +290,6 @@ function twitterRecovery(json) {
         Profile.status.ap.current += Profile.status.ap.max;
         Profile.status.bp.current += Profile.status.bp.max;
         updateUI("updStatus", Profile.status);
-    }
+        updateUI("updRaid", Raids.getList());
+   }
 }
